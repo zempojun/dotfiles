@@ -23,7 +23,6 @@ call vundle#end()
 filetype plugin indent on
 
 "エンコーディング
-"GUI版使ってるなら無効にした方がいいらしいです
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -32,7 +31,6 @@ set mouse=a
 set ttymouse=xterm2
 
 "vi互換をオフ
-"これ記述しなくても互換はオフらしいです
 set nocompatible
 
 "カーソル位置表示
@@ -42,7 +40,6 @@ set number
 
 "色
 set background=dark
-"カラーテーマは入れたら有効にしてください
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
 
@@ -133,6 +130,9 @@ set laststatus=2
 "ステータスライン上で作業ファイルパスの表示
 set statusline+=%F
 
+" maxmempattern
+set mmp=2000000
+
 """"""""""""""""""""""""""""""
 
 "カーソル移動
@@ -174,7 +174,10 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <silent><C-w> :FixWhitespace<CR>
 
 "Ctrl+aでPluginInstall
-nnoremap <silent><C-a> :PluginInstall<CR>
+"nnoremap <silent><C-a> :PluginInstall<CR>
+
+nnoremap <silent><C-x> :<C-u>echo "copied fullpath: " . expand('%:p') \| let @+=expand('%:p')<CR>
+
 
 imap <C-p> <Up>
 imap <C-n> <Down>
